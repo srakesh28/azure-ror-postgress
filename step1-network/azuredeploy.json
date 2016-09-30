@@ -168,7 +168,7 @@
             "properties": {
               "addressPrefix": "[parameters('WebAppSubnetPrefix')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('WebNSGName'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('WebAppNSGName'))]"
               }
             }
           },
