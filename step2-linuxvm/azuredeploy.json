@@ -82,7 +82,7 @@
 		"dbimagePublisher": "Bitnami",
 	    "dbimageOffer": "postgresql",
         "dbimageSKU": "9-5",
-        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
+		"vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
         "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables ('subnet1Name'))]",
         "subnet2Ref": "[concat(variables('vnetID'),'/subnets/',variables ('subnet2Name'))]",
         "numberOfInstances": 2
@@ -175,7 +175,12 @@
             "name": "[concat(variables('webPrefix'), copyindex())]",
             "type": "Microsoft.Compute/virtualMachines",
             "location": "[resourceGroup().location]",
-            "apiVersion": "2015-05-01-preview",
+            "plan": {
+			"name": "2-0",
+			"publisher": "bitnami",
+			"product": "rubystack"
+			}, 
+			"apiVersion": "2015-05-01-preview",
             "copy": {
                 "name": "virtualMachineLoop",
                 "count": "[variables('numberOfInstances')]"
@@ -273,6 +278,11 @@
             "name": "[concat(variables('dbPrefix'), copyindex())]",
             "type": "Microsoft.Compute/virtualMachines",
             "location": "[resourceGroup().location]",
+			"plan": {
+			"name": "9-6",
+			"publisher": "bitnami",
+			"product": "postgresql"
+			}, 
             "apiVersion": "2015-05-01-preview",
             "copy": {
                 "name": "virtualMachineLoop",
