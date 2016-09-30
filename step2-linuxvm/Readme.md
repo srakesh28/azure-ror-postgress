@@ -10,7 +10,7 @@ Note: After this Template is deployed, Please login to portal and assosiate Subn
 
 This Template builds up-on Next Template as Step3 for building your Infrastructure on Azure
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsrakesh28%2Fdemo-working%2Fmaster%2Fstep2-linuxvm%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsrakesh28%2Fazure-ror-postgress%2Fmaster%2Fstep2-linuxvm%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
@@ -30,11 +30,11 @@ azure account set "Your Account Name"
 Step1) azure group create <resource group name> <resource group location> westus
 ex : azure group create demo1 westus
 
-Step2) azure group deployment create --template-uri https://raw.githubusercontent.com/srakesh28/azure-iaasv2-arm/master/step1-network/azuredeploy.json demo1
+Step2) azure group deployment create --template-uri https://raw.githubusercontent.com/srakesh28/azure-ror-postgress/master/step1-network/azuredeploy.json demo1
 
-Step3) azure group deployment create --template-uri https://raw.githubusercontent.com/srakesh28/azure-iaasv2-arm/master/step2-linuxvm/azuredeploy.json demo1 (This Template)
+Step3) azure group deployment create --template-uri https://raw.githubusercontent.com/srakesh28/azure-ror-postgress/master/step2-linuxvm/azuredeploy.json demo1 (This Template)
 
-Step4) azure group deployment create --template-uri https://raw.githubusercontent.com/srakesh28/azure-iaasv2-arm/master/step3-lb/azuredeploy.json demo1
+Step4) azure group deployment create --template-uri https://raw.githubusercontent.com/srakesh28/azure-ror-postgress/master/step3-lb/azuredeploy.json demo1
 
 
 </html>
