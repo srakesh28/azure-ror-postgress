@@ -136,7 +136,7 @@
                         "properties": {
                             "addressPrefix": "[variables('subnet2Prefix')]"
                         }
-                    },
+                    }
                     
                 ]
             }
