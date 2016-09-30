@@ -279,9 +279,9 @@
             "type": "Microsoft.Compute/virtualMachines",
             "location": "[resourceGroup().location]",
 			"plan": {
-			"name": "9-5",
+			"name": "2-0",
 			"publisher": "bitnami",
-			"product": "postgresql"
+			"product": "rubystack"
 			}, 
             "apiVersion": "2015-05-01-preview",
             "copy": {
