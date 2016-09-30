@@ -279,7 +279,7 @@
             "type": "Microsoft.Compute/virtualMachines",
             "location": "[resourceGroup().location]",
 			"plan": {
-			"name": "9-6",
+			"name": "9-5",
 			"publisher": "bitnami",
 			"product": "postgresql"
 			}, 
