@@ -4,7 +4,7 @@
     "parameters": {
         "virtualNetworkName": {
             "type": "string",
-	        "defaultValue": "First_ARM_VNet",    
+	        "defaultValue": "WebAppVNET",    
         	"metadata": {
                 "description": "This is the name of the Virtual Network"
             }
@@ -69,9 +69,9 @@
     },
     "variables": {
         "VirtualNetworkPrefix": "10.0.0.0/16",
-        "subnet1Name": "WebAppSubnetName",
+        "subnet1Name": "WebAppSubnet",
         "subnet1Prefix": "10.0.0.0/24",
-        "subnet2Name": "DBSubnetName",
+        "subnet2Name": "DBSubnet",
         "subnet2Prefix": "10.0.1.0/24",
         "webPrefix": "webapp",
         "dbPrefix": "db",
