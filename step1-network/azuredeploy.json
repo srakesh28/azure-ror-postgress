@@ -164,7 +164,7 @@
         },
         "subnets": [
           {
-            "name": "FESubnetName",
+            "name": "WebAppSubnet",
             "properties": {
               "addressPrefix": "[parameters('WebAppSubnetPrefix')]",
               "networkSecurityGroup": {
@@ -174,7 +174,7 @@
           },
           
           {
-            "name": "DBSubnetName",
+            "name": "DBSubnet",
             "properties": {
               "addressPrefix": "[parameters('DBSubnetPrefix')]",
               "networkSecurityGroup": {
