@@ -264,11 +264,7 @@
 			"name": "[concat(variables('dbPrefix'), copyindex())]",
 			"type": "Microsoft.Compute/virtualMachines",
 			"location": "[resourceGroup().location]",
-			"plan": {
-				"name": "2-0",
-				"publisher": "bitnami",
-				"product": "rubystack"
-			},
+			
 			"apiVersion": "2015-05-01-preview",
 			"copy": {
 				"name": "virtualMachineLoop",
@@ -319,27 +315,32 @@
 			}
 		},
 
-		{
-			"type": "Microsoft.Compute/virtualMachines/extensions",
-			"name": "[concat(variables('dbPrefix'), copyindex()),'/newuserscript')]",
-			"apiVersion": "[variables('apiVersion')]",
-			"location": "[resourceGroup().location]",
-			"dependsOn": [
-				"[concat('Microsoft.Compute/virtualMachines/', concat(variables('dbPrefix'), copyindex()))]"
-			],
-			"properties": {
-				"publisher": "Microsoft.Azure.Extensions",
-				"type": "CustomScript",
-				"typeHandlerVersion": "2.0",
-				"autoUpgradeMinorVersion": true,
-				"settings": {
-					"fileUris": [
-						"https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-standalone-server-ubuntu/install_postgresql.sh"
-					],
-					"commandToExecute": "bash install_postgresql.sh"
-				}
-			}
+{
+	"type": "Microsoft.Compute/virtualMachines/extensions",
+	"name": "[concat(variables('dbPrefix'),copyIndex(),'/', variables('vmExtensionName'))]",
+	"apiVersion": "2015-05-01-preview",
+	"location": "[resourceGroup().location]",
+	"copy": {
+	"name": "extensionLoop",
+	"count": "[variables('numberOfInstances')]"
+	},
+	"dependsOn": [
+	"[concat('Microsoft.Compute/virtualMachines/', variables('dbPrefix'), copyIndex())]"
+	],
+	"properties":
+	{
+	  "publisher": "Microsoft.Azure.Extensions",
+	  "type": "CustomScript",
+	  "typeHandlerVersion": "2.0",
+	  "autoUpgradeMinorVersion": true,
+	  "settings": {
+	  "fileUris": ["https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-standalone-server-ubuntu/install_postgresql.sh"],
+	  "commandToExecute": "bash install_postgresql.sh"
+	  }
 
-		}
-	]
+	  }
+
 }
+]
+}
+
